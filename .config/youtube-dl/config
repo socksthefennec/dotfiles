@@ -1,0 +1,11 @@
+#format priority (720,1080,best,bestvideo+bestaudio)
+--format "best[height=720][ext=mp4]/best[height=720]/best[height=1080][ext=mp4]/best[height=1080]/best[ext=mp4]/best/bestvideo+bestaudio"
+
+#merge output to mp4
+--merge-output-format mp4
+
+#recode to mp4
+--recode-video mp4
+
+#output format
+-o "%(title)s-%(id)s.%(ext)s"
