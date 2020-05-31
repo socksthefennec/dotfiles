@@ -1,0 +1,178 @@
+[colors]
+;colors from .Xresources
+xcolor0  = ${xrdb:color0:#000}
+xcolor1  = ${xrdb:color1:#a00}
+xcolor2  = ${xrdb:color2:#0a0}
+xcolor3  = ${xrdb:color3:#a50}
+xcolor4  = ${xrdb:color4:#00a}
+xcolor5  = ${xrdb:color5:#a0a}
+xcolor6  = ${xrdb:color6:#0aa}
+xcolor7  = ${xrdb:color7:#aaa}
+xcolor8  = ${xrdb:color8:#555}
+xcolor9  = ${xrdb:color9:#f55}
+xcolor10 = ${xrdb:color10:#5f5}
+xcolor11 = ${xrdb:color11:#ff5}
+xcolor12 = ${xrdb:color12:#55f}
+xcolor13 = ${xrdb:color13:#f5f}
+xcolor14 = ${xrdb:color14:#5ff}
+xcolor15 = ${xrdb:color15:#fff}
+
+[shared]
+bg = ${colors.xcolor0}
+bga = ${colors.xcolor8}
+fg = ${colors.xcolor15}
+fga = ${colors.xcolor7}
+p = ${colors.xcolor6}
+s = ${colors.xcolor5}
+font-0 = Bitstream Vera Sans:size=10;2
+font-1 = Symbols Nerd Font:size=12;3
+
+[bar/primary-top]
+monitor = 
+height = 24
+radius = 0
+fixed-center = true
+background = ${shared.bg}
+foreground = ${shared.fg}
+border-size = 0
+padding-left = 1
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+font-0 = ${shared.font-0}
+font-1 = ${shared.font-1}
+modules-left = bspwm
+modules-center = xwindow
+modules-right = pulseaudio backlight battery date
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/primary-bottom]
+monitor = 
+height = 24
+radius = 0
+fixed-center = true
+background = ${shared.bg}
+foreground = ${shared.fg}
+border-size = 0
+padding-left = 2
+padding-right = 0
+module-margin-left = 1
+module-margin-right = 1
+font-0 = ${shared.font-0}
+font-1 = ${shared.font-1}
+modules-left = updates-pacman-aurhelper
+modules-center = mpris
+modules-right = 
+tray-position = right
+tray-padding = 0
+tray-maxsize = 16
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+bottom = true
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+format-charging = <label-charging> <animation-charging>
+format-discharging = <label-discharging> <ramp-capacity>
+format-full = <label-full> <ramp-capacity>
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-10 = 
+label-charging = %percentage%%
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <label> <ramp>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:90:...%
+label-empty = socks@socks-laptop
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = 
+label-focused-foreground = ${shared.p}
+label-focused-padding = 1
+
+label-occupied = 
+label-occupied-padding = 1
+
+label-dimmed-focused = 
+label-dimmed-focused-padding = 1
+
+label-urgent = 
+label-urgent-foreground = ${shared.s}
+label-urgent-padding = 1
+
+label-empty = 
+label-empty-padding = 1
+
+pin-workspaces = false
+
+[module/date]
+type = internal/date
+interval = 5
+time = %H:%M
+date = %d/%m %Y
+label = %time%  %date% 
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume> <ramp-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${shared.fg}
+label-muted = mute 婢
+label-muted-foreground = ${shared.fga}
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+
+[module/updates-pacman-aurhelper]
+type = custom/script
+exec = ~/.config/polybar/updates-pacman-aurhelper.sh
+interval = 600
+
+[module/mpris]
+type = custom/script
+exec = ~/.config/polybar/mpris.sh
+interval = 1
+click-left = playerctl-select
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+pseudo-transparency = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
