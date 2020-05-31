@@ -1,0 +1,27 @@
+include "%L"
+
+# Keys missing because of number keys 
+<Multi_key> <i>            <i>                    : "!" exclam      # 1
+<Multi_key> <I>            <I>                    : "!" exclam      #
+<Multi_key> <a>            <t>                    : "@" at          # 2
+<Multi_key> <A>            <T>                    : "@" at          #
+<Multi_key> <equal>        <equal>                : "#" numbersign  # 3
+<Multi_key> <plus>         <plus>                 : "#" numbersign  #
+<Multi_key> <s>            <backslash>            : "$" dollar      # 4
+<Multi_key> <S>            <bar>                  : "$" dollar      #
+<Multi_key> <o>            <slash>        <o>     : "%" percent     # 5
+<Multi_key> <O>            <question>     <O>     : "%" percent     #
+<Multi_key> <v>            <v>                    : "^" asciicircum # 6
+<Multi_key> <V>            <V>                    : "^" asciicircum #
+<Multi_key> <a>            <a>                    : "&" ampersand   # 7
+<Multi_key> <A>            <A>                    : "&" ampersand   #
+<Multi_key> <x>            <equal>                : "*" asterisk    # 8
+<Multi_key> <X>            <plus>                 : "*" asterisk    #
+<Multi_key> <bracketleft>  <bracketleft>          : "(" parenleft   # 9
+<Multi_key> <braceleft>    <braceleft>            : "(" parenleft   #
+<Multi_key> <bracketright> <bracketright>         : ")" parenright  # 0
+<Multi_key> <braceright>   <braceright>           : ")" parenright  #
+
+# Fun stuff
+<Multi_key> <c>            <c>            <c> <p> : "☭" U262D       # HAMMER AND SICKLE
+<Multi_key> <C>            <C>            <C> <P> : "☭" U262D       #
