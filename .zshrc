@@ -1,3 +1,7 @@
+if [[ ! -a "$HOME/antigen" ]];then
+	git clone "https://github.com/zsh-users/antigen.git" "$HOME/antigen"
+fi
+
 source $HOME/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library
