@@ -23,7 +23,7 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 
 # Load the theme
-antigen theme /home/socks sonks.zsh-theme --no-local-clone
+antigen theme "$HOME" sonks.zsh-theme --no-local-clone
 
 ZSH_AUTOSUGGEST_STRATEGY=completion
 ZSH_AUTOSUGGEST_MAX_BUFFER_SIZE=100

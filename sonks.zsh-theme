@@ -10,7 +10,7 @@ ASYNC_PROC=0
 function precmd() {
     function async() {
         # save to temp file
-        git_prompt_info > "/tmp/zsh_prompt_$$"
+        git_prompt_info > "${TMPDIR:-/tmp}/zsh_prompt_$$"
 
         # signal parent
         kill -s USR1 $$
@@ -30,7 +30,7 @@ function precmd() {
 
 function TRAPUSR1() {
     # read from temp file
-    RPROMPT="$(cat /tmp/zsh_prompt_$$)"
+    RPROMPT="$(cat ${TMPDIR:-/tmp}/zsh_prompt_$$)"
 
     # reset proc number
     ASYNC_PROC=0
