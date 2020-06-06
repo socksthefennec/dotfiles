@@ -1,0 +1,14 @@
+#!/bin/bash
+
+_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+_NAME="$(basename $0)"
+_SELF="$_DIR/$_NAME"
+_PATH="$(which -a "$_NAME")"
+_PATH_1="$(printf "${_PATH//$_SELF}"|sed '/^[[:space:]]*$/d')"
+_OUT="$(printf "$_PATH_1"|cut -f1 -d$'\n')"
+unset _DIR
+unset _NAME
+unset _SELF
+unset _PATH
+unset _PATH_1
+printf "$_OUT"

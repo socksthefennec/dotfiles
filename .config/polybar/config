@@ -154,14 +154,14 @@ ramp-volume-2 = 墳
 
 [module/updates-pacman-aurhelper]
 type = custom/script
-exec = ~/.config/polybar/updates-pacman-aurhelper.sh
+exec = ~/.scripts/polybar/updates-pacman-aurhelper.sh
 interval = 600
 
 [module/mpris]
 type = custom/script
-exec = ~/.config/polybar/mpris.sh
+exec = ~/.scripts/polybar/mpris.sh
 interval = 1
-click-left = playerctl-select
+click-left = ~/.scripts/utils/playerctl-select
 
 [settings]
 screenchange-reload = true

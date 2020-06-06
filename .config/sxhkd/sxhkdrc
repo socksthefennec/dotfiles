@@ -173,4 +173,4 @@ XF86MonBrightnessUp
 	brightnessctl set +5%
 
 super + XF86AudioPlay
-	playerctl-select
+	~/.scripts/utils/playerctl-select

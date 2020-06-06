@@ -1,0 +1,7 @@
+#!/bin/bash
+for i in $@; do
+	killall -q $i
+	while pgrep -u $UID -x $i >/dev/null;do sleep 1; done
+	$i &
+	echo "$i launched"
+done
