@@ -10,8 +10,6 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     git
 
-    fzf
-
     # Syntax highlighting bundle.
     zdharma/fast-syntax-highlighting
 
@@ -21,6 +19,8 @@ antigen bundles <<EOBUNDLES
     # Extra zsh completions
     zsh-users/zsh-completions
 EOBUNDLES
+# fzf keybinds
+antigen bundle "${PREFIX:-/usr}/share/fzf" key-bindings.zsh
 
 # Load the theme
 antigen theme "$HOME" sonks.zsh-theme --no-local-clone
