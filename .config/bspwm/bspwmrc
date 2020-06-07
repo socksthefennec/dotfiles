@@ -23,6 +23,6 @@ bspc config presel_feedback_color "$(~/.scripts/utils/xrdb-query color6)"
 setxkbmap -option compose:ralt
 feh --bg-fill --no-fehbg ~/.config/background.png
 ~/.config/polybar/launch.sh
-~/.scripts/restart.sh picom
+~/.scripts/util/dumb-restart picom
 
 dex -ae bspwm
