@@ -32,6 +32,9 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 # Tell antigen that you're done
 antigen apply
 
+[[ $commands[thefuck] ]] && eval $(thefuck --alias)
+
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 unsetopt nomatch
+
