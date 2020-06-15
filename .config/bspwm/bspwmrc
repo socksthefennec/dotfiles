@@ -21,7 +21,7 @@ bspc config presel_feedback_color "$(~/.scripts/utils/xrdb-query color6)"
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 setxkbmap -option compose:ralt
-feh --bg-fill --no-fehbg ~/.config/background.png
+feh --bg-fill --no-fehbg ~/.config/background
 ~/.config/polybar/launch.sh
 ~/.scripts/utils/dumb-restart picom
 
