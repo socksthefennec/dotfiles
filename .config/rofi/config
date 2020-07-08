@@ -1,2 +1,4 @@
 rofi.theme: sidetab
 rofi.modi: run,drun
+rofi.sort: true
+rofi.matching: fuzzy
