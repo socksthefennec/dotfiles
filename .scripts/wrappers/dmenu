@@ -1,3 +1,0 @@
-#!/bin/bash
-_OUT="$(which -a $(basename $0)|sed 's,^'"$(cd "$(dirname ${BASH_SOURCE[0]})">/dev/null 2>&1 && pwd)/$(basename $0)"'$,,g;/^[[:space:]]*$/d'|cut -f1 -d$'\n')"
-exec "$_OUT" -fn sans-13 -nb "$(xrdb-query color0)" -sb "$(xrdb-query color6)" -nf "$(xrdb-query color7)" -sf "$(xrdb-query color15)" "$@"
