@@ -5,16 +5,18 @@ sxhkd &
 
 case $(hostname) in
 	socks-laptop)
+		bspc monitor eDP-1 -d I II III IV V VI VII VIII IX X
 		xinput --set-prop 10 310 1
 		xinput --set-prop 10 320 0
 		;;
 	socks-desktop)
+		bspc monitor -d I II III IV V VI VII VIII IX X
 		;;
 	*)
+		bspc monitor -d I II III IV V VI VII VIII IX X
 		;;
 esac
 
-bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap           8
