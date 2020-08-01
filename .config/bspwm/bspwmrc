@@ -3,6 +3,17 @@ export SXHKD_SHELL='/bin/sh'
 export _JAVA_AWT_WM_NONREPARENTING=1
 sxhkd &
 
+case $(hostname) in
+	socks-laptop)
+		xinput --set-prop 10 310 1
+		xinput --set-prop 10 320 0
+		;;
+	socks-desktop)
+		;;
+	*)
+		;;
+esac
+
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2
