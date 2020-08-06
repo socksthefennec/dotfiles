@@ -28,7 +28,7 @@ font-0 = Bitstream Vera Sans:size=10;2
 font-1 = Symbols Nerd Font:size=12;3
 
 [bar/primary-top]
-monitor = 
+monitor = ${env:MONITOR:}
 height = 24
 radius = 0
 fixed-center = true
@@ -49,7 +49,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/primary-bottom]
-monitor = 
+monitor = ${env:MONITOR:}
 height = 24
 radius = 0
 fixed-center = true
@@ -68,6 +68,49 @@ modules-right = xkeyboard
 tray-position = right
 tray-padding = 0
 tray-maxsize = 16
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+bottom = true
+
+[bar/secondary-top]
+monitor = ${env:MONITOR:}
+height = 24
+radius = 0
+fixed-center = true
+background = ${shared.bg}
+foreground = ${shared.fg}
+border-size = 0
+padding-left = 1
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+font-0 = ${shared.font-0}
+font-1 = ${shared.font-1}
+modules-left = bspwm
+modules-center = xwindow
+modules-right = 
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/secondary-bottom]
+monitor = ${env:MONITOR:}
+height = 24
+radius = 0
+fixed-center = true
+background = ${shared.bg}
+foreground = ${shared.fg}
+border-size = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 1
+module-margin-right = 1
+font-0 = ${shared.font-0}
+font-1 = ${shared.font-1}
+modules-left = 
+modules-center = 
+modules-right = 
 wm-restack = bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -122,7 +165,7 @@ ramp-2 = 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:90:...%
-label-empty = socks@socks-laptop
+label-empty = ${env:DEFAULT_TITLE:}
 
 [module/bspwm]
 type = internal/bspwm
@@ -143,7 +186,7 @@ label-urgent-padding = 1
 label-empty = 
 label-empty-padding = 1
 
-pin-workspaces = false
+pin-workspaces = true
 
 [module/date]
 type = internal/date
