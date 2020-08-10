@@ -1,11 +1,18 @@
-#format priority (720,1080,best,bestvideo+bestaudio)
---format "best[height=720][ext=mp4]/best[height=720]/best[height=1080][ext=mp4]/best[height=1080]/best[ext=mp4]/best/bestvideo+bestaudio"
+#format priority
+--format "best[height>720]/bestvideo[height>720]+bestaudio/best/bestvideo+bestaudio"
 
-#merge output to mp4
---merge-output-format mp4
+#add file info
+#--write-description
+#--embed-thumbnail
+--embed-subs
+--add-metadata
 
-#recode to mp4
---recode-video mp4
+#merge output to mkv
+--merge-output-format mkv
+
+#recode to mkv
+--recode-video mkv
 
 #output format
 -o "%(title)s-%(id)s.%(ext)s"
+
