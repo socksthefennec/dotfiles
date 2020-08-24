@@ -2,16 +2,16 @@
 --format "best[height>720]/bestvideo[height>720]+bestaudio/best/bestvideo+bestaudio"
 
 #add file info
-#--write-description
-#--embed-thumbnail
+--write-description
+--embed-thumbnail
 --embed-subs
 --add-metadata
 
-#merge output to mkv
---merge-output-format mkv
+#merge output to mp4
+--merge-output-format mp4
 
-#recode to mkv
---recode-video mkv
+#recode to mp4
+--recode-video mp4
 
 #output format
 -o "%(title)s-%(id)s.%(ext)s"
