@@ -1,0 +1,5 @@
+#!/bin/bash
+_OUT="$(which -a $(basename $0)|sed 's,^'"$(cd "$(dirname ${BASH_SOURCE[0]})">/dev/null 2>&1 && pwd)/$(basename $0)"'$,,g;/^[[:space:]]*$/d'|cut -f1 -d$'\n')"
+export QT_QPA_PLATFORMTHEME=gtk3
+export TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY=1
+exec "$_OUT" "$@"
