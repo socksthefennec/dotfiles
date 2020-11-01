@@ -197,7 +197,7 @@ pin-workspaces = true
 type = internal/date
 interval = 5
 time = %H:%M
-date = %d/%m %Y
+date = %a %d/%m %Y
 label = %time%  %date% 
 
 [module/pulseaudio]
