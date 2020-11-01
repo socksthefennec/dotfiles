@@ -26,6 +26,7 @@ p = ${colors.xcolor6}
 s = ${colors.xcolor5}
 font-0 = Bitstream Vera Sans:size=10;2
 font-1 = Symbols Nerd Font:size=12;3
+font-2 = unifont:fontformat=truetype:size=10:antialias=false;2
 
 [bar/primary-top]
 monitor = ${env:MONITOR:}
@@ -41,6 +42,7 @@ module-margin-left = 1
 module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
+font-2 = ${shared.font-2}
 modules-left = bspwm
 modules-center = xwindow
 modules-right = pulseaudio backlight battery date
@@ -62,6 +64,7 @@ module-margin-left = 1
 module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
+font-2 = ${shared.font-2}
 modules-left = updates-pacman-aurhelper
 modules-center = mpris
 modules-right = xkeyboard
@@ -87,6 +90,7 @@ module-margin-left = 1
 module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
+font-2 = ${shared.font-2}
 modules-left = bspwm
 modules-center = xwindow
 modules-right = 
@@ -108,6 +112,7 @@ module-margin-left = 1
 module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
+font-2 = ${shared.font-2}
 modules-left = 
 modules-center = 
 modules-right = 
