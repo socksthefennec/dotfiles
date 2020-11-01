@@ -213,9 +213,10 @@ interval = 600
 
 [module/mpris]
 type = custom/script
-exec = ~/.scripts/polybar/mpris.sh
-interval = 1
-click-left = ~/.scripts/utils/playerctl-select
+exec = playerctl metadata -Ff '{{artist}} - {{title}}' 2>/dev/null
+tail = true
+click-left = playerctld shift
+format =  <label>
 
 [settings]
 screenchange-reload = true
