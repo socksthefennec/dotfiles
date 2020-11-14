@@ -38,3 +38,7 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 unsetopt nomatch
 
+
+yayfzf(){
+	yay -Slq|fzf --multi --preview 'yay -Si {1}'|xargs -ro yay -S
+}
