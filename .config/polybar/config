@@ -124,7 +124,7 @@ font-2 = ${shared.font-2}
 font-3 = ${shared.font-3}
 font-4 = ${shared.font-2}
 modules-left = 
-modules-center = 
+modules-center = blank 
 modules-right = 
 wm-restack = bspwm
 cursor-click = pointer
@@ -232,6 +232,10 @@ exec = playerctl metadata -Ff '{{artist}} - {{title}}' 2>/dev/null
 tail = true
 click-left = playerctld shift
 format =  <label>
+
+[module/blank]
+type = custom/text
+content = " "
 
 [settings]
 screenchange-reload = true
