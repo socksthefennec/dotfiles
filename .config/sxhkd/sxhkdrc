@@ -87,7 +87,15 @@ super + bracket{left,right}
 
 #shift node to next/previous desktop in the current monitor
 super + shift + bracket{left,right}
-	bspc node focused -d {prev,next} --follow
+	bspc node focused -d {prev,next}.local --follow
+
+# focus the next/previous monitor
+super + alt + bracket{left,right}
+	bspc monitor -f {prev,next}
+
+#shift node to next/previous monitor
+super + alt + shift + bracket{left,right}
+	bspc node focused -m {prev,next} --follow
 
 # focus the last node/desktop
 super + {grave,Tab}
@@ -100,8 +108,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# super + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
 # preselect
