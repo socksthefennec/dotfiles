@@ -1,0 +1,30 @@
+remove-empty = true
+append-when-occupied = true
+renamers = ["classified", "constant"]
+min = 1
+max = 30
+
+[names]
+constant = ""
+# 
+
+[[names.classified]]
+# Browsers
+"" = ["firefox"]
+"" = []
+# Terminals
+"" = ["kitty"]
+# Games
+"戮" = ["Steam"]
+"" = ["itch"]
+# Chat
+"ﭮ" = ["discord"]
+"切" = ["TelegramDesktop"]
+"" = ["Element"]
+# Music
+"阮" = ["Spotify"]
+"" = []
+# Files
+"" = ["Thunar"]
+# Image viewers
+"" = ["feh"]

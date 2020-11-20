@@ -39,5 +39,6 @@ feh --bg-fill --no-fehbg ~/.config/background
 ~/.config/polybar/launch.sh
 ~/.scripts/utils/dumb-restart picom
 ~/.scripts/utils/dumb-restart playerctld
+~/.scripts/utils/dumb-restart btops
 
 dex -ae bspwm

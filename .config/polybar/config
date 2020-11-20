@@ -26,7 +26,9 @@ p = ${colors.xcolor6}
 s = ${colors.xcolor5}
 font-0 = Bitstream Vera Sans:size=10;2
 font-1 = Symbols Nerd Font:size=12;3
-font-2 = unifont:fontformat=truetype:size=10:antialias=false;2
+font-2 = Twemoji:style=Regular:scale=8;1
+font-3 = Source Han Sans:size=10;2
+font-4 = unifont:fontformat=truetype:size=10:antialias=false;2
 
 [bar/primary-top]
 monitor = ${env:MONITOR:}
@@ -42,7 +44,9 @@ module-margin-left = 1
 module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
-font-2 = ${shared.font-2}
+font-2 = ${shared.font-3}
+font-3 = ${shared.font-3}
+font-4 = ${shared.font-2}
 modules-left = bspwm
 modules-center = xwindow
 modules-right = pulseaudio backlight battery date
@@ -65,6 +69,8 @@ module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
 font-2 = ${shared.font-2}
+font-3 = ${shared.font-3}
+font-4 = ${shared.font-2}
 modules-left = updates-pacman-aurhelper
 modules-center = mpris
 modules-right = xkeyboard
@@ -91,6 +97,8 @@ module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
 font-2 = ${shared.font-2}
+font-3 = ${shared.font-3}
+font-4 = ${shared.font-2}
 modules-left = bspwm
 modules-center = xwindow
 modules-right = 
@@ -113,6 +121,8 @@ module-margin-right = 1
 font-0 = ${shared.font-0}
 font-1 = ${shared.font-1}
 font-2 = ${shared.font-2}
+font-3 = ${shared.font-3}
+font-4 = ${shared.font-2}
 modules-left = 
 modules-center = 
 modules-right = 
@@ -169,22 +179,22 @@ ramp-2 = 
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:90:...%
+label = %title:0:60:...%
 label-empty = ${env:DEFAULT_TITLE:}
 
 [module/bspwm]
 type = internal/bspwm
-label-focused = 
+label-focused = %name%
 label-focused-foreground = ${shared.p}
 label-focused-padding = 1
 
-label-occupied = 
+label-occupied = %name%
 label-occupied-padding = 1
 
-label-dimmed-focused = 
+label-dimmed-focused = %name%
 label-dimmed-focused-padding = 1
 
-label-urgent = 
+label-urgent = %name%
 label-urgent-foreground = ${shared.s}
 label-urgent-padding = 1
 

@@ -1,0 +1,12 @@
+configuration {
+	modi: "run,drun";
+	show-icons: true;
+	terminal: ""/usr/bin/kitty"";
+	sort: true;
+	sidebar-mode: true;
+	matching: "fuzzy";
+	theme: "sidetab";
+	display-window: "Window";
+	display-run: "Execute";
+	display-drun: "Activate";
+}

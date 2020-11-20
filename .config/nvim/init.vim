@@ -13,6 +13,7 @@ Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
