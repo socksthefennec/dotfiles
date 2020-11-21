@@ -5,16 +5,12 @@ sxhkd &
 
 case $(hostnamectl --static) in
 	socks-laptop)
-		bspc monitor eDP-1 -d I II III IV V VI VII VIII IX X
 		xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 		xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 0
 		;;
 	socks-desktop)
-		bspc monitor HDMI-0 -d I II III IV V VI VII VIII IX X
-		bspc monitor DP-0 -d XI XII XIII XIV XV XVI XVII XVIII XIX XX
 		;;
 	*)
-		bspc monitor -d I II III IV V VI VII VIII IX X
 		;;
 esac
 
