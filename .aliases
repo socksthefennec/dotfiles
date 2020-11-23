@@ -1,0 +1,2 @@
+alias icat="kitty icat --align=left"
+alias isvg="rsvg-convert|icat"
