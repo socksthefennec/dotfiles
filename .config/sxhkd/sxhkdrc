@@ -182,3 +182,12 @@ XF86MonBrightnessDown
 
 XF86MonBrightnessUp
 	brightnessctl set +5%
+
+#button10
+#	application push-to-talk, not bound here
+
+button11
+	playerctl play-pause
+
+button1{2,3}
+	playerctl {next,previous}
