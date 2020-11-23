@@ -22,7 +22,6 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     # oh-my-zsh plugins (TODO: migrate away from oh-my-zsh)
     git
-    fzf
 
     # Syntax highlighting bundle.
     zdharma/fast-syntax-highlighting
@@ -33,6 +32,14 @@ antigen bundles <<EOBUNDLES
     # Extra zsh completions
     zsh-users/zsh-completions
 EOBUNDLES
+
+if [ -f "$HOME/../usr/share/fzf/key-bindings.zsh" ];then
+	antigen bundle "$HOME/../usr/share/fzf" "key-bindings.zsh"
+elif [ -f "/usr/share/fzf/key-bindings.zsh" ];then
+		antigen bundle "/usr/share/fzf" "key-bindings.zsh"
+elif [ -f "/usr/share/doc/fzf/key-bindings.zsh" ];then
+	antigen bundle "/usr/share/doc/fzf" "key-bindings.zsh"
+fi
 
 # Load the theme
 antigen theme "$HOME" sonks.zsh-theme --no-local-clone
