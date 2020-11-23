@@ -179,7 +179,7 @@ ramp-2 = 
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:60:...%
+label = %title:0:90:...%
 label-empty = ${env:DEFAULT_TITLE:}
 
 [module/bspwm]
