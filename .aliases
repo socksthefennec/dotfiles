@@ -1,2 +1,6 @@
+#utils
 alias icat="kitty icat --align=left"
 alias isvg="rsvg-convert|icat"
+
+#colors
+alias ip="ip -c"
