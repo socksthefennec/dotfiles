@@ -1,7 +1,7 @@
 configuration {
 	modi: "run,drun";
 	show-icons: true;
-	terminal: ""/usr/bin/kitty"";
+	terminal: "/usr/bin/kitty";
 	sort: true;
 	sidebar-mode: true;
 	matching: "fuzzy";
