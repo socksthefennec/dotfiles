@@ -18,5 +18,3 @@ Xcursor.theme: Breeze-Adapta
 *.color15: #ECEFF1
 *.foreground: #ECEFF1
 *.background: #263238
-XTerm*decTerminalID: vt340
-XTerm*numColorRegisters: 256
