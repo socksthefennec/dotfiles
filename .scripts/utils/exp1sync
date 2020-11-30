@@ -1,2 +1,2 @@
 #!/bin/sh
-rsync -av -e 'ssh -p 8022' --progress --delete --no-i-r 10.0.0.214:/storage/689A-AAEB/TEST3/ ~/.hidden/
+rsync -av -e 'ssh -p 8022' --progress --delete --no-i-r 10.0.0.11:/storage/689A-AAEB/TEST3/ ~/.hidden/
