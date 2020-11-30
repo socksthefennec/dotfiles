@@ -12,6 +12,15 @@ expand-aliases() {
     BUFFER=${functions[_expand-aliases]#$'\t'} &&
     CURSOR=$#BUFFER
 }
+# transparently use kitty's ssh kitten when available
+ssh() {
+  if command -v kitty &> /dev/null
+  then
+	  kitty +kitten ssh "$@"
+  else
+	  ssh "$@"
+  fi
+}
 
 zle -N expand-aliases
 bindkey '\e^E' expand-aliases
