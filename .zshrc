@@ -18,7 +18,7 @@ ssh() {
   then
 	  kitty +kitten ssh "$@"
   else
-	  ssh "$@"
+	  command ssh "$@"
   fi
 }
 
