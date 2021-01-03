@@ -1,2 +1,2 @@
 #!/bin/sh
-feh ~/.hidden/experiments\ vol.1/ -.ZYSmtime -^ "%n %wx%h(%z) [%u/%l]"
+exec feh ~/.hidden/experiments\ vol.1/ -.ZYSmtime -^ "%n %wx%h(%z) [%u/%l]"
