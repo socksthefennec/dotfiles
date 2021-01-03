@@ -97,6 +97,14 @@ super + alt + bracket{left,right}
 super + alt + shift + bracket{left,right}
 	bspc node focused -m {prev,next} --follow
 
+#shift desktop forwards or back in order
+super + ctrl + bracket{left,right}
+	bspc desktop --bubble {prev,next}
+
+#shift dektop to prev or next monitor
+super + ctrl + shift + bracket{left,right}
+	bspc desktop --to-monitor {prev,next}
+
 # focus the last node/desktop
 super + {grave,Tab}
 	bspc {node,desktop} -f last
@@ -148,6 +156,8 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
+super + d ; {a,d}
+	bspc {monitor --add-desktops new,desktop focused --remove}
 
 super + l
 	dm-tool lock
