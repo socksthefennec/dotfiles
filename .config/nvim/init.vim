@@ -14,6 +14,7 @@ Plug 'junegunn/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'cespare/vim-toml'
+Plug 'kovetskiy/sxhkd-vim'
 
 call plug#end()
 
