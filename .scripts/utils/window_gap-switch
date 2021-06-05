@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ $(bspc config window_gap) == 8 ]
+then
+	bspc config window_gap 0
+else
+	bspc config window_gap 8
+fi

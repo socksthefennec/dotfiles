@@ -6,6 +6,9 @@
 super + Return
 	kitty
 
+super + shift + Return
+	tdrop -ma -w -4 -h 50% -y 24 -s dropdown kitty
+
 # program launcher
 super + @space
 	rofi -show run
@@ -161,6 +164,9 @@ super + d ; {a,d}
 
 super + l
 	dm-tool lock
+
+super + v
+	~/.scripts/utils/window_gap-switch
 
 # media
 XF86AudioRaiseVolume

@@ -13,10 +13,21 @@ Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'cespare/vim-toml'
-Plug 'kovetskiy/sxhkd-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'tomtom/tcomment_vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 call plug#end()
 
 set number
 set mouse=a
+
+if (has('termguicolors'))
+  set termguicolors
+endif
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'default'
+let g:lightline = { 'colorscheme': 'material_vim' }
+colorscheme material
+
+noremap <C-/> Tcomment 
