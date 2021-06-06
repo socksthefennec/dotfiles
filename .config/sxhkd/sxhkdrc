@@ -7,7 +7,7 @@ super + Return
 	kitty
 
 super + shift + Return
-	tdrop -ma -w -4 -h 50% -y 24 -s dropdown kitty
+	tdrop -ma -w -4 -h 50% -y 24 -s dropdown kitty --session ~/.config/kitty/tdrop
 
 # program launcher
 super + @space

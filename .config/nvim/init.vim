@@ -21,6 +21,8 @@ call plug#end()
 
 set number
 set mouse=a
+set title
+set showtabline=2
 
 if (has('termguicolors'))
   set termguicolors
