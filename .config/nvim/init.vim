@@ -16,6 +16,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tomtom/tcomment_vim'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 

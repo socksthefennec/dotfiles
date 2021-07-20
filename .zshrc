@@ -77,5 +77,5 @@ unsetopt nomatch
 
 
 yayfzf(){
-	yay -Slq|fzf --multi --preview 'yay -Si {1}'|xargs -ro yay -S
+	yay -Slq|fzf --multi --preview 'yay -Si {1}' -q "$*"|xargs -ro yay -S
 }
