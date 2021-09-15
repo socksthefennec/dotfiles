@@ -17,6 +17,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tomtom/tcomment_vim'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'mattn/emmet-vim'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -30,7 +31,23 @@ if (has('termguicolors'))
 endif
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'default'
-let g:lightline = { 'colorscheme': 'material_vim' }
+" let g:lightline = { 'colorscheme': 'material_vim' }
 colorscheme material
 
 noremap <C-/> Tcomment 
+
+let g:lightline = {
+      \ 'component_function': {
+      \   'filetype': 'MyFiletype',
+      \   'fileformat': 'MyFileformat',
+      \ },
+      \ 'colorscheme': 'material_vim'
+      \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
