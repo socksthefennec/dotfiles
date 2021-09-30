@@ -1,5 +1,5 @@
 #format priority
---format "best[height>720]/bestvideo[height>720]+bestaudio/best/bestvideo+bestaudio"
+--format "best[height>=720]/bestvideo[height>=720]+bestaudio/best/bestvideo+bestaudio"
 
 #add file info
 --write-description
