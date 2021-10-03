@@ -18,6 +18,9 @@ Plug 'tomtom/tcomment_vim'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'mattn/emmet-vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'AndrewRadev/switch.vim'
+Plug 'tpope/vim-surround'
+Plug 'mg979/vim-visual-multi'
 
 call plug#end()
 
