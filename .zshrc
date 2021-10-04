@@ -76,6 +76,10 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 unsetopt nomatch
 
 
-yayfzf(){
-	yay -Slq|fzf --multi --preview 'yay -Si {1}' -q "$*"|xargs -ro yay -S
+yayfzf () {
+	yay -Slq | fzf --multi --preview 'yay -Sii {1}' --query "$*" | xargs -ro yay -S
+}
+
+yayrm () {
+	yay -Qeq | fzf --multi --preview 'yay -Sii {1}' --query "$*" | xargs -ro yay -D --asdeps ; yay -Qddtq | yay -Rs -
 }
