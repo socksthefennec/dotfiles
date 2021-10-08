@@ -1,3 +1,6 @@
+export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+export EDITOR=nvim
+
 if [[ ! -a "$HOME/antigen" ]];then
 	git clone "https://github.com/zsh-users/antigen.git" "$HOME/antigen"
 fi
