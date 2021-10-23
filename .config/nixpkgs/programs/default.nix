@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./neovim ];
+  imports = [
+    ./neovim 
+    ./zsh
+  ];
 }
