@@ -29,16 +29,19 @@ font-1 = Symbols Nerd Font:size=12;3
 font-2 = Twemoji:style=Regular:scale=8;1
 font-3 = Source Han Sans:size=10;2
 font-4 = unifont:fontformat=truetype:size=10:antialias=false;2
+height = 24
+radius = 0
+border-size = 0
 
 [bar/primary-top]
 monitor = ${env:MONITOR:}
-height = 24
-radius = 0
+height = ${shared.height}
+radius = ${shared.radius}
 fixed-center = true
 background = ${shared.bg}
 foreground = ${shared.fg}
-border-size = 0
-padding-left = 1
+border-size = ${shared.border-size}
+padding-left = 0
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
@@ -56,12 +59,12 @@ cursor-scroll = ns-resize
 
 [bar/primary-bottom]
 monitor = ${env:MONITOR:}
-height = 24
-radius = 0
+height = ${shared.height}
+radius = ${shared.radius}
 fixed-center = true
 background = ${shared.bg}
 foreground = ${shared.fg}
-border-size = 0
+border-size = ${shared.border-size}
 padding-left = 2
 padding-right = 0
 module-margin-left = 1
@@ -73,7 +76,7 @@ font-3 = ${shared.font-3}
 font-4 = ${shared.font-2}
 modules-left = updates-pacman-aurhelper
 modules-center = mpris
-modules-right = xkeyboard
+; modules-right = xkeyboard
 tray-position = right
 tray-padding = 0
 tray-maxsize = 16
@@ -101,7 +104,7 @@ font-3 = ${shared.font-3}
 font-4 = ${shared.font-2}
 modules-left = bspwm
 modules-center = xwindow
-modules-right = 
+modules-right =
 wm-restack = bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -123,9 +126,9 @@ font-1 = ${shared.font-1}
 font-2 = ${shared.font-2}
 font-3 = ${shared.font-3}
 font-4 = ${shared.font-2}
-modules-left = 
-modules-center = blank 
-modules-right = 
+modules-left =
+modules-center = blank
+modules-right =
 wm-restack = bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -135,7 +138,7 @@ bottom = true
 type = internal/xkeyboard
 format = <label-indicator>
 format-spacing = 1
-indicator-icon-default = 
+indicator-icon-default =
 indicator-icon-0 = caps lock;;
 indicator-icon-1 = scroll lock;;
 indicator-icon-2 = num lock;;
@@ -144,8 +147,8 @@ label-indicator-off = %icon%
 
 [module/battery]
 type = internal/battery
-battery = BAT1
-adapter = ACAD
+battery = BAT0
+adapter = ADP0
 format-charging = <label-charging> <animation-charging>
 format-discharging = <label-discharging> <ramp-capacity>
 format-full = <label-full> <ramp-capacity>
@@ -171,7 +174,7 @@ animation-charging-6 = 
 
 [module/backlight]
 type = internal/backlight
-card = intel_backlight
+card = amdgpu_bl0
 format = <label> <ramp>
 ramp-0 = 
 ramp-1 = 
@@ -184,6 +187,10 @@ label-empty = ${env:DEFAULT_TITLE:}
 
 [module/bspwm]
 type = internal/bspwm
+; format = <label-monitor> <label-state> <label-mode>
+format = <label-state>
+pin-workspaces = true
+
 label-focused = %name%
 label-focused-foreground = ${shared.p}
 label-focused-padding = 1
@@ -201,7 +208,21 @@ label-urgent-padding = 1
 label-empty = 
 label-empty-padding = 1
 
-pin-workspaces = true
+
+label-monitor = %name%
+label-monitor-background = ${shared.p}
+label-monitor-padding = 1
+
+
+; label-monocle = a
+; label-tiled = b
+; label-fullscreen = c
+; label-floating = d
+; label-pseudotiled = e
+; label-locked = f
+; label-sticky = g
+; label-private = h
+; label-marked = i
 
 [module/date]
 type = internal/date
@@ -228,7 +249,7 @@ interval = 600
 
 [module/mpris]
 type = custom/script
-exec = playerctl metadata -Ff '{{artist}} - {{title}}' 2>/dev/null
+exec = playerctl metadata -Ff '{{artist}} - {{title}} [{{duration(position)}}/{{duration(mpris:length)}}]' 2>/dev/null
 tail = true
 click-left = playerctld shift
 format =  <label>
@@ -243,7 +264,7 @@ screenchange-reload = true
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
-pseudo-transparency = true
+pseudo-transparency = false
 
 [global/wm]
 margin-top = 0

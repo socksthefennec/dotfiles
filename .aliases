@@ -1,4 +1,7 @@
 #utils
+alias userctl="systemctl --user"
+
+#icat :)
 alias icat="kitty icat --align=left"
 alias isvg="rsvg-convert|icat"
 

@@ -13,12 +13,14 @@
     packages = with pkgs; [ git nixfmt ];
     sessionVariables = { EDITOR = "nvim"; };
     extraOutputsToInstall = [ "man" "info" "devdoc" ];
-    # language.base = "en_AU.UTF-8";
+    language.base = "en_AU.UTF-8";
   };
+
+  manual.html.enable = true;
 
   # Fix nixpkgs man on non-nixos
   programs.man.enable = false;
-  home.extraOutputsToInstall = [ "man" ];
+  # home.extraOutputsToInstall = [ "man" ];
 
   programs = {
     fzf = {

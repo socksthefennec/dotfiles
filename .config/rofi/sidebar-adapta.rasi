@@ -1,0 +1,121 @@
+/* @import "sidebar" */
+* {
+    //             Black
+black:         #263238;
+lightblack:    #37474F;
+               //             Red
+red:           #FF9800;
+lightred:      #FFA74D;
+               //             Green
+green:         #8BC34A;
+lightgreen:    #9CCC65;
+               //             Yellow
+yellow:        #FFC107;
+lightyellow:   #FFA000;
+               //             Blue
+blue:          #03A9F4;
+lightblue:     #81D4FA;
+               //             Magenta
+magenta:       #E91E63;
+lightmagenta:  #AD1457;
+               //             Cyan
+cyan:          #009688;
+lightcyan:     #26A69A;
+               //             White
+white:         #CFD8DC;
+lightwhite:    #ECEFF1;
+               background-color:  rgba(0,0,0,0);
+               text-color: @lightwhite;
+font: "sans 12";
+pwidth: 0.5em;
+}
+window {
+height:   100%;
+width: 30em;
+location: west;
+anchor:   west;
+          /* border:  0px 0px 0px 0px; */
+          /*     text-color: @lightwhite; */
+}
+mode-switcher {
+border: 0px 0px 0px 0px;
+        background-color: @lightblack;
+padding: @pwidth;
+spacing: @pwidth;
+}
+button {
+padding: @pwidth;
+         border-radius: @pwidth;
+}
+button selected {
+    /* border-color: @lightgreen; */
+    /* text-color: @cyan; */
+    background-color: @cyan;
+}
+inputbar {
+    background-color: @lightblack;
+    text-color: @lightgreen;
+padding: @pwidth;
+border: 0px 0px 0px 0px;
+children: [ prompt, entry ];
+}
+prompt {
+    background-color: @cyan;
+    border-radius: @pwidth;
+padding: @pwidth;
+}
+entry {
+padding: @pwidth;
+}
+mainbox {
+    /*     expand: true; */
+    background-color: @black;
+    /*     spacing: 1em; */
+}
+listview {
+padding: @pwidth;
+dynamic: false;
+spacing: @pwidth;
+         /*     lines: 0; */
+}
+element {
+padding: @pwidth;
+         border-radius: @pwidth;
+         /* background-color: @magenta; */
+}
+element-text {
+    /*     background-color: inherit; */
+    text-color:       inherit;
+}
+element selected  normal {
+    background-color: @cyan;
+}
+element normal active {
+    /*     text-color: @lightblue; */
+}
+element normal urgent {
+    /*     text-color: @lightred; */
+}
+element alternate normal {
+}
+element alternate active {
+    /*     text-color: @lightblue; */
+}
+element alternate urgent {
+    /*     text-color: @lightred; */
+}
+element selected active {
+    /*     background-color: @lightblue; */
+    /*     text-color: @dark; */
+}
+element selected urgent {
+    /*     background-color: @lightred; */
+    /*     text-color: @dark; */
+}
+error-message {
+    /*     expand: true; */
+    background-color: @lightmagenta;
+    border-color: @magenta;
+border: @pwidth;
+padding: @pwidth;
+}

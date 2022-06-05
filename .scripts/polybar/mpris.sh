@@ -14,4 +14,5 @@ vlc)
 	;;
 esac
 
-printf "$PLAYER $ARTIST - $TITLE"
+# printf "$PLAYER $ARTIST - $TITLE"
+playerctl metadata -f ' {{playerName}}: {{artist}} - {{title}} [{{duration(position)}}/{{duration(mpris:length)}}]'

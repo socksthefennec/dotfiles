@@ -8,6 +8,6 @@ new_tab
 title radeontop
 launch radeontop -c
 #nvtop
-new_tab
-title nvtop
-launch nvtop
+# new_tab
+# title nvtop
+# launch nvtop

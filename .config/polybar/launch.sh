@@ -11,9 +11,12 @@ export DEFAULT_TITLE=$(whoami)@$(hostnamectl --static)
 # Launch Polybar, using default config location ~/.config/polybar/config
 case $(hostname) in
 	socks-laptop)
-		export MONITOR=eDP-1
+		export MONITOR=eDP
 		polybar primary-top &
 		polybar primary-bottom &
+		# export MONITOR=HDMI-A-0
+		# polybar secondary-top &
+		# polybar secondary-bottom &
 		;;
 	socks-desktop)
 		export MONITOR=HDMI-0

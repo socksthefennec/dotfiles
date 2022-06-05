@@ -1,7 +1,7 @@
 #!/bin/sh
-_OPTS="--archive --verbose --info=progress2 --no-inc-recursive"
+_OPTS="--archive --verbose --info=progress2 --no-inc-recursive --human-readable"
 _SSH_CMD="ssh -p 8022"
-_HOST="10.0.0.29"
+_HOST="192.168.1.123"
 _SOURCE="/storage/689A-AAEB/TEST3/"
 _DEST="$HOME/.hidden/"
 exec rsync $_OPTS --rsh="ssh -p 8022" "$_HOST:$_SOURCE" "$_DEST"

@@ -3,18 +3,6 @@ export SXHKD_SHELL='/bin/sh'
 export _JAVA_AWT_WM_NONREPARENTING=1
 sxhkd &
 
-case $(hostnamectl --static) in
-	socks-laptop)
-		xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-		xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 0
-		;;
-	socks-desktop)
-		;;
-	*)
-		;;
-esac
-
-
 bspc config border_width         2
 bspc config window_gap           8
 
