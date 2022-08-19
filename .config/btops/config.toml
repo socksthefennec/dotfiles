@@ -1,9 +1,7 @@
-# remove-empty = true
+remove-empty = false
 append-when-occupied = true
 # min = 1
 # max = 30
-remove-empty = false
-# append-when-occupied = false
 renamers = ["classified", "constant"]
 [names]
 constant = ""

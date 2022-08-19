@@ -1,0 +1,22 @@
+#!/bin/sh
+PRIMARY=eDP
+export DEFAULT_TITLE=$(whoami)@$(hostnamectl --static)
+export MONITOR
+startBars(){
+	killall -q polybar
+	MONITORS=$(xrandr --query|grep " connected"|cut -d" " -f1)
+	for MONITOR in $MONITORS;do
+		if [ "$MONITOR" = "$PRIMARY" ];then
+			echo "Primary:   $MONITOR"
+			polybar primary-top      >> ~/.config/polybar/log 2>&1 &
+			polybar primary-bottom   >> ~/.config/polybar/log 2>&1 &
+		else
+			echo "Secondary: $MONITOR"
+			polybar secondary-top    >> ~/.config/polybar/log 2>&1 &
+			polybar secondary-bottom >> ~/.config/polybar/log 2>&1 &
+		fi
+	done
+	wait
+}
+trap startBars SIGUSR1
+startBars

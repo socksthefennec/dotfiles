@@ -145,6 +145,7 @@ function! NvimGps() abort
   set foldexpr=nvim_treesitter#foldexpr()
 
   set number
+  set relativenumber
   set mouse=a
   set title
   set showtabline=2
@@ -200,10 +201,10 @@ function! NvimGps() abort
     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
   endfunction
 
-  augroup fmt
-    autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
-  augroup END
+  "augroup fmt
+  "  autocmd!
+  "  autocmd BufWritePre * undojoin | Neoformat
+  "augroup END
 
   " Enable alignment globally
   let g:neoformat_basic_format_align = 1
