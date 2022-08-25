@@ -207,3 +207,9 @@ button11
 
 button1{2,3}
 	playerctl {next,previous}
+
+
+# modal test - quick launcher
+super + q; {d, t, f}
+	{discord, telegram-desktop, firefox}
+

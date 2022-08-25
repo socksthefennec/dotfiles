@@ -36,6 +36,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'ray-x/cmp-treesitter'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'rootkiter/vim-hexedit/'
 
 call plug#end()
 
@@ -139,78 +141,88 @@ EOF
 function! NvimGps() abort
   return luaeval("require'nvim-gps'.is_available()") ?
         \ luaeval("require'nvim-gps'.get_location()") : ''
-  endf
+endf
 
-  set foldmethod=expr
-  set foldexpr=nvim_treesitter#foldexpr()
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
-  set number
-  set relativenumber
-  set mouse=a
-  set title
-  set showtabline=2
+set number
+set relativenumber
+set mouse=a
+set title
+set showtabline=2
 
 
-  if (has('termguicolors'))
-    set termguicolors
-  endif
-  let g:material_terminal_italics = 1
-  let g:material_theme_style = 'default'
-  " let g:lightline = { 'colorscheme': 'material_vim' }
-  colorscheme material
+if (has('termguicolors'))
+  set termguicolors
+endif
+" let g:material_terminal_italics = 1
+let g:material_theme_style = 'default'
+" let g:lightline = { 'colorscheme': 'material_vim' }
+colorscheme material
 
-  " let g:gruvbox_material_background = 'soft'
-  " let g:gruvbox_material_enable_italic = 1
-  " colorscheme gruvbox-material
+" let g:gruvbox_material_background = 'soft'
+" let g:gruvbox_material_enable_italic = 1
+" colorscheme gruvbox-material
 
-  noremap <C-/> Tcomment
+" noremap <C-/> TComment
+noremap  <c-/> :TComment<cr>
+vnoremap <c-/> :TCommentMaybeInline<cr>
+inoremap <c-/> <c-o>:TComment<cr>
 
-  nnoremap <A-down> :m .+1<CR>
-  nnoremap <A-up> :m .-2<CR>
-  inoremap <A-down> <Esc>:m .+1<CR>gi
-  inoremap <A-up> <Esc>:m .-2<CR>gi
-  vnoremap <A-down> :m '>+1<CR>gv
-  vnoremap <A-up> :m '<-2<CR>gv
+nnoremap <A-down> :m .+1<CR>
+nnoremap <A-up> :m .-2<CR>
+inoremap <A-down> <Esc>:m .+1<CR>gi
+inoremap <A-up> <Esc>:m .-2<CR>gi
+vnoremap <A-down> :m '>+1<CR>gv
+vnoremap <A-up> :m '<-2<CR>gv
 
-  " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
-  let g:lightline = {
-        \ 'colorscheme': 'material_vim',
-        \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'readonly', 'filename', 'modified' ],
-          \             [ 'gps' ] ]
+let g:lightline = {
+      \ 'colorscheme': 'material_vim',
+      \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'readonly', 'filename', 'modified' ],
+        \             [ 'gps' ] ]
+        \ },
+        \ 'component_function': {
+          \   'filetype': 'MyFiletype',
+          \   'fileformat': 'MyFileformat',
+          \   'gps': 'NvimGps',
           \ },
-          \ 'component_function': {
-            \   'filetype': 'MyFiletype',
-            \   'fileformat': 'MyFileformat',
-            \   'gps': 'NvimGps',
-            \ },
-            \ }
-  set noshowmode
+          \ }
+set noshowmode
 
-  function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-  endfunction
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
 
-  function! MyFileformat()
-    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-  endfunction
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 
-  "augroup fmt
-  "  autocmd!
-  "  autocmd BufWritePre * undojoin | Neoformat
-  "augroup END
+"augroup fmt
+"  autocmd!
+"  autocmd BufWritePre * undojoin | Neoformat
+"augroup END
 
-  " Enable alignment globally
-  let g:neoformat_basic_format_align = 1
+" Enable alignment globally
+let g:neoformat_basic_format_align = 1
 
-  " Enable tab to spaces conversion globally
-  let g:neoformat_basic_format_retab = 1
+" Enable tab to spaces conversion globally
+let g:neoformat_basic_format_retab = 1
 
-  " Enable trimmming of trailing whitespace globally
-  let g:neoformat_basic_format_trim = 1
+" Enable trimmming of trailing whitespace globally
+let g:neoformat_basic_format_trim = 1
+
+set foldlevelstart=99
+
+" Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
+nnoremap <silent> <M-F12> :BufExplorer<CR>
+nnoremap <silent> <F12> :bn<CR>
+nnoremap <silent> <S-F12> :bp<CR>
