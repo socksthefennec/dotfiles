@@ -67,7 +67,10 @@ require'lualine'.setup {
     },
     lualine_x = {'location'},
   },
-  tabline = { lualine_a = { {'tabs', mode = 2} } }
+  tabline = {
+    lualine_a = { {'tabs', mode = 2} },
+    lualine_z = {'hostname'}
+  }
 }
 
 -- misc settings
@@ -96,7 +99,8 @@ vim.cmd([[
   vnoremap <silent> <A-up> :m '<-2<CR>gv
   
   " BufExplorer
-  nnoremap <silent> <M-F12> :BufExplorer<CR>
-  nnoremap <silent> <F12> :bn<CR>
-  nnoremap <silent> <S-F12> :bp<CR>
+  nnoremap <silent> <F12> :BufExplorer<CR>
+  " nnoremap <silent> <M-F12> :BufExplorer<CR>
+  " nnoremap <silent> <F12> :bn<CR>
+  " nnoremap <silent> <S-F12> :bp<CR>
 ]])
