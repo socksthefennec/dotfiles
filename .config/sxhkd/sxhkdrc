@@ -17,13 +17,13 @@ super + shift + @space
 	rofi -show drun
 
 Print
-	maim > ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_full.png
+	maim | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_full.png | xclip -selection clipboard -t image/png
 
 super + Print
-	maim -st 0 > ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_sect.png
+	maim -st 0 | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_full.png | xclip -selection clipboard -t image/png
 
 super + shift + Print
-	maim -st 999999 ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_wind.png
+	maim -st 999999 | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_full.png | xclip -selection clipboard -t image/png
 
 # make sxhkd reload its configuration files:
 super + Escape

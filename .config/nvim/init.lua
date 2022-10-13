@@ -31,6 +31,17 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   },
 }
+require'nvim-autopairs'.setup{
+  map_cr = true
+}
+require'telescope'.setup()
+require'telescope'.load_extension('fzf')
+local lsp_attach = function(client, bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+    require'nvim-navic'.attach(client, bufnr)
+  end
+end
+-- require'lspconfig'.setup
 
 -- theme
 vim.o.termguicolors = true
@@ -39,7 +50,14 @@ vim.g.material_theme_style = 'default'
 vim.cmd('colorscheme material')
 
 -- lualine
-local gps = require'nvim-gps'
+local gps_or_navic = function()
+  local gps = require'nvim-gps'
+  local navic = require'nvim-navic'
+  if navic.is_available() then return "navic: " .. navic.get_location()
+  elseif gps.is_available() then return "gps: " .. gps.get_location()
+  else return ""
+  end
+end
 require'lualine'.setup {
   options = {
     theme = require'material.lualine',
@@ -54,7 +72,7 @@ require'lualine'.setup {
       {'%M', cond = function() return vim.o.modified end}, 
       'branch', 'diff', 'diagnostics'
     },
-    lualine_c = {{gps.get_location, cond = gps.is_available}}, 
+    lualine_c = {}, 
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -70,6 +88,11 @@ require'lualine'.setup {
   tabline = {
     lualine_a = { {'tabs', mode = 2} },
     lualine_z = {'hostname'}
+  },
+  winbar = {
+    lualine_c = {
+      {gps_or_navic, separator = ''}
+    },
   }
 }
 
@@ -82,6 +105,13 @@ vim.o.mouse = 'a'
 vim.o.title = true
 vim.o.showtabline = 2
 vim.o.showmode = false
+
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+vim.o.softtabstop = true
+
+vim.g.livepreview_previewer = 'mupdf.inotify'
 
 -- keybinding
 vim.cmd([[

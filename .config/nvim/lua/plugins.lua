@@ -11,6 +11,13 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here
@@ -21,11 +28,24 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-  use {'socksthefennec/material.vim', branch = 'lualine' }
+  use {'kaicataldo/material.vim', branch = 'main' }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- We recommend updating the parsers on update
   use 'SmiteshP/nvim-gps'
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
   use 'tomtom/tcomment_vim'
   use 'jlanzarotta/bufexplorer'
+  use 'Lokaltog/neoranger'
+  use 'sbdchd/neoformat'
+  use 'windwp/nvim-autopairs'
+  use 'xuhdev/vim-latex-live-preview'
+  use {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- use 'junegunn/fzf'
   -- use 'junegunn/vim-easy-align'
   -- use 'airblade/vim-gitgutter'
@@ -35,7 +55,6 @@ return require('packer').startup(function(use)
   -- use 'tpope/vim-surround'
   -- use 'mg979/vim-visual-multi'
   -- use 'romgrk/nvim-treesitter-context'
-  -- use 'sbdchd/neoformat'
   -- use 'nvim-treesitter/nvim-treesitter-refactor'
   -- use 'neovim/nvim-lspconfig'
   -- use 'hrsh7th/cmp-buffer'
