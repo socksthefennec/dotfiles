@@ -14,6 +14,7 @@ expand-aliases() {
   (($+functions[_expand-aliases])) &&
     BUFFER=${functions[_expand-aliases]#$'\t'} &&
     CURSOR=$#BUFFER
+  zle && zle redisplay
 }
 # transparently use kitty's ssh kitten when available
 ssh() {
@@ -34,8 +35,6 @@ function countdown(){
    done
 }
 
-zle -N expand-aliases
-bindkey '\e^E' expand-aliases
 
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
@@ -45,7 +44,7 @@ antigen bundles <<EOBUNDLES
     git
 
     # Syntax highlighting bundle.
-    zdharma/fast-syntax-highlighting
+    zdharma/fast-syntax-highlighting --branch=main
 
     # Fish-like auto suggestions
     zsh-users/zsh-autosuggestions
@@ -86,3 +85,7 @@ yayfzf () {
 yayrm () {
 	yay -Qeq | fzf --multi --preview 'yay -Sii {1}' --query "$*" | xargs -ro yay -D --asdeps ; yay -Qddtq | yay -Rs -
 }
+
+zle -N expand-aliases
+bindkey '^E' expand-aliases
+bindkey '^H' backward-kill-word
