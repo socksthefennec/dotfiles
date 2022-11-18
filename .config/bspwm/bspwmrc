@@ -23,7 +23,8 @@ bspc config presel_feedback_color "$(~/.scripts/utils/xrdb-query color6)"
 setxkbmap -option compose:ralt
 feh --bg-fill --no-fehbg ~/.config/background
 ~/.config/polybar/polybar-launch &
-picom --experimental-backends &
+#picom now uses xdg autostart
+# picom --experimental-backends &
 ~/.scripts/utils/dumb-restart playerctld
 ~/.scripts/utils/dumb-restart btops
 

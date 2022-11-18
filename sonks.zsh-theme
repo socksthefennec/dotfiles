@@ -41,5 +41,5 @@ function TRAPUSR1() {
     zle && zle reset-prompt
 
     # cleanup temp file
-    rm -- "${TMPDIR:-/tmp}/zsh_rprompt_$$"
+    rm -- "${TMPDIR:-/tmp}/zsh_rprompt_$$" &> /dev/null
 }
