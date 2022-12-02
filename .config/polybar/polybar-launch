@@ -1,5 +1,5 @@
 #!/bin/sh
-PRIMARY=eDP
+PRIMARY=$(xrandr|grep primary|cut -d' ' -f1)
 export DEFAULT_TITLE=$(whoami)@$(hostnamectl --static)
 export MONITOR
 startBars(){
