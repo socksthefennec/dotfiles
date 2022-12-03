@@ -4,9 +4,9 @@ new_tab
 launch htop
 
 #radeontop
-new_tab
-title radeontop
-launch radeontop -c
+# new_tab
+# title radeontop
+# launch radeontop -c
 #nvtop
 new_tab
 title nvtop
