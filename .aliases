@@ -2,8 +2,11 @@
 alias userctl="systemctl --user"
 
 #icat :)
-alias icat="kitty icat --align=left"
+alias icat="kitten icat --align=left"
 alias isvg="rsvg-convert|icat"
 
 #colors
 alias ip="ip -c"
+
+#yt-dlp
+alias yt-dlp.audio="yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/config.audio"

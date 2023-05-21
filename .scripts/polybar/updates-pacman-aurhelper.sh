@@ -14,4 +14,4 @@ fi
 
 updates=$(("$updates_arch" + "$updates_aur"))
 
-echo "ﮮ $updates"
+echo "$updates"

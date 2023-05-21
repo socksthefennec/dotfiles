@@ -20,6 +20,9 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'eandrju/cellular-automaton.nvim'
+  use 'ntpeters/vim-better-whitespace'
+  -- use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
@@ -30,11 +33,23 @@ return require('packer').startup(function(use)
   }
   use {'kaicataldo/material.vim', branch = 'main' }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- We recommend updating the parsers on update
-  use 'SmiteshP/nvim-gps'
+  -- use 'SmiteshP/nvim-gps'
   use {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
+  use {
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+      -- "numToStr/Comment.nvim",        -- Optional
+      "nvim-telescope/telescope.nvim" -- Optional
+    }
+  }
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   use 'tomtom/tcomment_vim'
   use 'jlanzarotta/bufexplorer'
   use 'Lokaltog/neoranger'
@@ -43,20 +58,23 @@ return require('packer').startup(function(use)
   use 'xuhdev/vim-latex-live-preview'
   use {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'airblade/vim-gitgutter'
+  use 'tpope/vim-surround'
+  use 'mg979/vim-visual-multi'
+  use 'rootkiter/vim-hexedit'
+
   -- use 'junegunn/fzf'
   -- use 'junegunn/vim-easy-align'
-  -- use 'airblade/vim-gitgutter'
   -- use 'sheerun/vim-polyglot'
   -- use 'mattn/emmet-vim'
   -- use 'AndrewRadev/switch.vim'
-  -- use 'tpope/vim-surround'
-  -- use 'mg979/vim-visual-multi'
   -- use 'romgrk/nvim-treesitter-context'
   -- use 'nvim-treesitter/nvim-treesitter-refactor'
-  -- use 'neovim/nvim-lspconfig'
   -- use 'hrsh7th/cmp-buffer'
   -- use 'hrsh7th/cmp-path'
   -- use 'hrsh7th/cmp-cmdline'
@@ -64,7 +82,6 @@ return require('packer').startup(function(use)
   -- use 'hrsh7th/cmp-vsnip'
   -- use 'hrsh7th/vim-vsnip'
   -- use 'ray-x/cmp-treesitter'
-  -- use 'rootkiter/vim-hexedit/'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

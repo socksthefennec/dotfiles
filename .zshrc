@@ -67,6 +67,7 @@ antigen theme "$HOME" sonks.zsh-theme --no-local-clone
 ZSH_AUTOSUGGEST_STRATEGY=completion
 ZSH_AUTOSUGGEST_MAX_BUFFER_SIZE=100
 ZSH_AUTOSUGGEST_USE_ASYNC=1
+REPORTTIME=10
 
 # Tell antigen that you're done
 antigen apply

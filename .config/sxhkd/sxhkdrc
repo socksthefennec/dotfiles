@@ -20,10 +20,10 @@ Print
 	maim | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_full.png | xclip -selection clipboard -t image/png
 
 super + Print
-	maim -st 0 | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_full.png | xclip -selection clipboard -t image/png
+	maim --hidecursor -st 0 --highlight --color=$(xrdb-query color6|hextorgb),.8 | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_part.png | xclip -selection clipboard -t image/png
 
 super + shift + Print
-	maim -st 999999 | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_full.png | xclip -selection clipboard -t image/png
+	maim --hidecursor -st 999999 --highlight --color=$(xrdb-query color6|hextorgb),.8 | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)_wind.png | xclip -selection clipboard -t image/png
 
 # make sxhkd reload its configuration files:
 super + Escape
