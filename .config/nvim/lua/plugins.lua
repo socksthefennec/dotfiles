@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     }
   }
-  use 'airblade/vim-gitgutter'
+  use {'airblade/vim-gitgutter', branch = 'main'}
   use 'tpope/vim-surround'
   use 'mg979/vim-visual-multi'
   use 'rootkiter/vim-hexedit'
