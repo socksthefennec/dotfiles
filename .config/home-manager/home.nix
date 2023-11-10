@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [ ./programs ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -10,7 +9,7 @@
   home = {
     username = "socks";
     homeDirectory = "/home/socks";
-    packages = with pkgs; [ git nixfmt ];
+    packages = with pkgs; [ git nixfmt nixgl.nixGLIntel ];
     sessionVariables = { EDITOR = "nvim"; };
     extraOutputsToInstall = [ "man" "info" "devdoc" ];
     language.base = "en_AU.UTF-8";
@@ -38,5 +37,5 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "21.05";
+  home.stateVersion = "23.05";
 }
