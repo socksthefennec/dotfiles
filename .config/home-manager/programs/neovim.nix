@@ -5,8 +5,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "kaicataldo";
       repo = "material.vim";
-      rev = "3b8e2c32e628f0ef28771900c6d83eb003053b91";
-      sha256 = "1wi1brm1yml4xw0zpc6q5y0ql145v1hw5rbbcsgafagsipiz4av3";
+      rev = "b47e7f884cb606c19a20e8e520dfa10c3b3a52f9";
+      sha256 = "1abhf71ap9cs03ibi3qm8lw8kdynb86x85didnhlhb673xg0kbcz";
     };
   };
   vim-hexedit = pkgs.vimUtils.buildVimPlugin {
@@ -98,6 +98,7 @@ in {
           }
         '';
       }
+      telescope-fzf-native-nvim
       {
         plugin = telescope-nvim;
         type = "lua";
