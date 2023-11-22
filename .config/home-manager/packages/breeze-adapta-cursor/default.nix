@@ -1,9 +1,14 @@
-with import <nixpkgs> { };
-
+{
+  lib,
+  inputs,
+  pkgs,
+  stdenv,
+  ...
+}:
 stdenv.mkDerivation {
   name = "Breeze-Adapta-Cursor";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "mustafaozhan";
     repo = "Breeze-Adapta-Cursor";
     rev = "72ffeffb12b0dae77d6ffff2654f80f477231e69";

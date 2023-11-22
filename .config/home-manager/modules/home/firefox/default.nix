@@ -1,45 +1,47 @@
-{ config, pkgs, ... }:
-
 {
-  programs.firefox = {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib) types mkIf mkDefault mkOption;
+  cfg = config.sockscfg.firefox;
+in {
+  options.sockscfg.firefox.enable = mkOption {
+    type = types.bool;
+    default = config.sockscfg.graphics.enable;
+    description = ''
+      Whether to enable firefox.
+    '';
+  };
+
+  config.programs.firefox = mkIf cfg.enable {
     enable = true;
     profiles.default = {
       settings = {
-        browser = {
-          ctrlTab.sortByRecentlyUsed = true;
-          newtabpage.activity-stream = {
-            section.highlights = {
-              includeBookmarks = false;
-              includeDownloads = false;
-              includePocket = false;
-              includeVisited = false;
-            };
-            showSearch = false;
-            showSponsoredTopSites = false;
-            topSitesRows = 4;
-          };
-          search.suggest.enabled = false;
-          sessionstore.warnOnQuit = true;
-          tabs = {
-            inTitlebar = 1;
-            warnOnClose = true;
-          };
-          toolbars.bookmarks.visibility = "never";
-        };
-        devtools = {
-          theme = "dark";
-          toolbox.host = "window";
-        };
-        extensions.pocket.enabled = false;
-        gfx.webrender.all = true;
-        image.jxl.enabled = true;
-        layout.css = {
-          has-selector.enabled = true;
-          scroll-driven-animations.enabled = true;
-        };
-        media.hardwaremediakeys.enabled = false;
-        privacy.donottrackheader.enabled = true;
-        toolkit.legacyUserProfileCustomizations.stylesheets = true;
+        "browser.ctrlTab.sortByRecentlyUsed" = true;
+        "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
+        "browser.newtabpage.activity-stream.showSearch" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.newtabpage.activity-stream.topSitesRows" = 4;
+        "browser.search.suggest.enabled" = false;
+        "browser.sessionstore.warnOnQuit" = true;
+        "browser.tabs.inTitlebar" = 1;
+        "browser.tabs.warnOnClose" = true;
+        "browser.toolbars.bookmarks.visibility" = "never";
+        "devtools.theme" = "dark";
+        "devtools.toolbox.host" = "window";
+        "extensions.pocket.enabled" = false;
+        "gfx.webrender.all" = true;
+        "image.jxl.enabled" = true;
+        "layout.css.has-selector.enabled" = true;
+        "layout.css.scroll-driven-animations.enabled" = true;
+        "media.hardwaremediakeys.enabled" = false;
+        "privacy.donottrackheader.enabled" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         auto-tab-discard
