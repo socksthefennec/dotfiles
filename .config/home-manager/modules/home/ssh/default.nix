@@ -4,18 +4,22 @@
   pkgs,
   ...
 }: let
-  inherit (lib) types mkDefault mkOption;
+  inherit (lib) types mkIf mkDefault mkOption;
   cfg = config.sockscfg.ssh;
 in {
   options.sockscfg.ssh = {
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = config.sockscfg.enable;
       description = ''
-        Whether to enable Socks' config.
+        Whether to enable ssh.
       '';
     };
   };
 
-  config = {};
+  config.programs.ssh = mkIf cfg.enable {
+    enable = true;
+    controlMaster = mkDefault "auto";
+    controlPersist = mkDefault "10m";
+  };
 }
